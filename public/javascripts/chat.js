@@ -22,20 +22,23 @@ Chat.prototype.processCommand = function (command) {
         .substring(1, words[0].length)
         .toLowerCase();
     var message = false;
-    switch (command) {
-        case 'join':
-            words.shift();
-            var room = words.join(' ');
-            this.changeRoom(room);
-            break;
-        case 'nick':
-            words.shift();
-            var name = words.join(' ');
-            this.socket.emit('nameAttempt', name);
-            break;
-        default:
-            message = 'Unrecognized command.';
-            break;
-    }
+    // Value cannot be empty
+    if (words.length > 1) {
+        switch (command) {
+            case 'join':
+                words.shift();
+                var room = words.join(' ');
+                this.changeRoom(room);
+                break;
+            case 'nick':
+                words.shift();
+                var name = words.join(' ');
+                this.socket.emit('nameAttempt', name);
+                break;
+            default:
+                message = 'Unrecognized command.';
+                break;
+        }
+    } else message = 'Missing command argument';
     return message;
 };
