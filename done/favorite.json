@@ -1,0 +1,14 @@
+{
+  "messageType": "pour",
+  "pourType": "favorite",
+  "bevId": 1475691,
+  "nonce": "nonce",
+  "freestyleId": "freestyleID"
+}
+{
+  "messageType": "pour",
+  "pourType": "favorite",
+  "bevId": 1,
+  "seed": "seed",
+  "jrid": "jrid"
+}
